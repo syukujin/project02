@@ -6,16 +6,22 @@
     <title>MY COMPANY | 집 가고 싶다 퇴근하고 싶다</title>
     <link rel="stylesheet" href="/css/home.css" th:href="@{/css/home.css}">
     <style>
-        /* 두 문장을 차례로 등장시키고 마법진과 어울리는 빛으로 강조한다. */
+        /* 큰 글자와 어두운 외곽선으로 불꽃 배경에서도 제목을 선명하게 표시한다. */
+        #hero-title {
+            font-size: clamp(40px, 6.5vw, 92px);
+            font-weight: 900;
+            line-height: 1.35;
+        }
         .hero-title-line {
             display: inline-block;
-            color: #e8fbff;
-            text-shadow: 0 2px 4px #000, 0 0 18px rgba(125, 211, 232, .8);
+            color: #fff4bd;
+            -webkit-text-stroke: 1px #602000;
+            text-shadow: 3px 5px 0 #000, 0 0 24px #ff8a00, 0 0 60px #ff4500;
             transform-origin: left center;
-            animation: title-appear .8s ease-out backwards, title-glow 2.4s ease-in-out 1s infinite;
+            animation: title-appear .8s ease-out backwards, title-glow 1.8s ease-in-out 1s infinite;
         }
         .hero-title-line:last-child {
-            color: #7dd3e8;
+            color: #ffd34e;
             animation-delay: .2s, 1.2s;
         }
         @keyframes title-appear {
@@ -24,15 +30,19 @@
         }
         @keyframes title-glow {
             0%, 100% {
-                color: #7dd3e8;
+                color: #ffd34e;
                 transform: scale(1);
-                text-shadow: 0 2px 4px #000, 0 0 18px rgba(125, 211, 232, .8);
+                text-shadow: 3px 5px 0 #000, 0 0 24px #ff8a00, 0 0 60px #ff4500;
             }
             50% {
-                color: #ffe8a3;
-                transform: scale(1.05);
-                text-shadow: 0 2px 4px #000, 0 0 10px #fff, 0 0 28px #7dd3e8, 0 0 55px rgba(255, 211, 106, .9);
+                color: #fff;
+                transform: translateY(-6px) scale(1.1);
+                text-shadow: 3px 5px 0 #000, 0 0 16px #fff, 0 0 48px #ffd34e, 0 0 90px #ff4500;
             }
+        }
+        /* 모바일에서는 확대되는 제목이 화면 밖으로 넘치지 않도록 크기를 제한한다. */
+        @media (max-width: 760px) {
+            #hero-title { font-size: clamp(28px, 8vw, 52px); }
         }
         /* 움직임 줄이기를 선택한 사용자는 강조 색상만 표시한다. */
         @media (prefers-reduced-motion: reduce) {
@@ -52,10 +62,10 @@
     </header>
     <main id="main">
         <section id="home" class="hero" aria-labelledby="hero-title">
-            <img class="hero-image" src="/images/company-banner-magic-academy.png" th:src="@{/images/company-banner-magic-academy.png}" alt="하늘에 마법진이 빛나는 마법학교 앞에서 마법사 의상을 입은 설윤의 AI 합성 이미지" fetchpriority="high">
+            <img class="hero-image" src="/images/company-banner-hell-cat.png" th:src="@{/images/company-banner-hell-cat.png}" alt="불길과 용암이 있는 지옥 배경에서 머리를 붙잡고 절규하는 귀여운 고양이" fetchpriority="high">
             <div class="hero-shade"></div>
             <div class="container hero-content">
-                <p class="eyebrow">TOGETHER, FOR A BETTER TOMORROW</p>
+                <p class="eyebrow">I’M SO SLEEPY. I WANT TO GO HOME.</p>
                 <h1 id="hero-title"><span class="hero-title-line">집 가고 싶다</span><br><span class="hero-title-line">퇴근하고 싶다</span></h1>
                 <p class="hero-description">교수님 너무 힘들어요.<br>제발 집에 보내주세요</p>
                 <a class="button" href="https://map.naver.com/p/bus/bus-route/P5342/bus-route/20033348?c=10.00%2C0%2C0%2C0%2Cdh" target="_blank" rel="noopener noreferrer" aria-label="집가는 길: P5342 버스 노선도 (새 탭)">집가는 길 <span aria-hidden="true">↗</span></a>
