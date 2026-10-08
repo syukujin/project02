@@ -1,0 +1,9 @@
+.git
+.gradle
+.vscode
+.agents
+build
+bin
+.env
+.env.*
+*.log
