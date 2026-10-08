@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MY COMPANY | 회사 소개</title>
+    <link rel="stylesheet" href="/css/home.css" th:href="@{/css/home.css}">
+</head>
+<body>
+    <a class="skip-link" href="#main">본문 바로가기</a>
+    <header>
+        <div class="container header-inner">
+            <a class="brand" href="/" th:href="@{/}">MY COMPANY</a>
+            <nav aria-label="주 메뉴">
+                <a href="/" th:href="@{/}">홈</a>
+                <a href="/about" th:href="@{/about}" aria-current="page">회사 소개</a>
+            </nav>
+        </div>
+    </header>
+    <main id="main" class="container about">
+        <div>
+            <p class="eyebrow section-label">ABOUT US</p>
+            <h1>마법으로 여는<br>새로운 가능성</h1>
+        </div>
+        <div class="about-description">
+            <p>MY COMPANY는 마법을 연구하고 가르치는 마탑입니다. 새로운 마법을 탐구하며 지식과 경험을 함께 나눕니다.</p>
+            <p>신뢰와 도전, 동반 성장을 바탕으로 더 나은 내일을 만들어 갑니다.</p>
+            <a class="button" href="/" th:href="@{/}">홈으로 돌아가기 <span aria-hidden="true">→</span></a>
+        </div>
+    </main>
+</body>
+</html>

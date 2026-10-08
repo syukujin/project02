@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MY COMPANY | 함께 만드는 더 나은 내일</title>
+    <title>MY COMPANY | 집 가고 싶다 퇴근하고 싶다</title>
     <link rel="stylesheet" href="/css/home.css" th:href="@{/css/home.css}">
+    <style>
+        /* 두 문장을 차례로 등장시키고 마법진과 어울리는 빛으로 강조한다. */
+        .hero-title-line {
+            display: inline-block;
+            color: #e8fbff;
+            text-shadow: 0 2px 4px #000, 0 0 18px rgba(125, 211, 232, .8);
+            transform-origin: left center;
+            animation: title-appear .8s ease-out backwards, title-glow 2.4s ease-in-out 1s infinite;
+        }
+        .hero-title-line:last-child {
+            color: #7dd3e8;
+            animation-delay: .2s, 1.2s;
+        }
+        @keyframes title-appear {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes title-glow {
+            0%, 100% {
+                color: #7dd3e8;
+                transform: scale(1);
+                text-shadow: 0 2px 4px #000, 0 0 18px rgba(125, 211, 232, .8);
+            }
+            50% {
+                color: #ffe8a3;
+                transform: scale(1.05);
+                text-shadow: 0 2px 4px #000, 0 0 10px #fff, 0 0 28px #7dd3e8, 0 0 55px rgba(255, 211, 106, .9);
+            }
+        }
+        /* 움직임 줄이기를 선택한 사용자는 강조 색상만 표시한다. */
+        @media (prefers-reduced-motion: reduce) {
+            .hero-title-line { animation: none; }
+        }
+    </style>
 </head>
 <body>
     <a class="skip-link" href="#main">본문 바로가기</a>
@@ -12,7 +46,7 @@
         <div class="container header-inner">
             <a class="brand" href="#home"><span class="brand-mark" aria-hidden="true">M</span> MY COMPANY</a>
             <nav aria-label="주 메뉴">
-                <a href="#home">홈</a><a href="#about">회사 소개</a><a href="#values">핵심 가치</a><a class="contact-link" href="#contact">문의 안내 ↗</a>
+                <a href="#home">홈</a><a href="/about" th:href="@{/about}">회사 소개</a><a href="#values">핵심 가치</a><a class="contact-link" href="#contact">문의 안내 ↗</a>
             </nav>
         </div>
     </header>
@@ -22,9 +56,9 @@
             <div class="hero-shade"></div>
             <div class="container hero-content">
                 <p class="eyebrow">TOGETHER, FOR A BETTER TOMORROW</p>
-                <h1 id="hero-title">함께 만드는<br>더 나은 내일.</h1>
-                <p class="hero-description">새로운 가능성을 발견하고,<br>신뢰할 수 있는 가치로 연결합니다.</p>
-                <a class="button" href="#about">회사 소개 보기 <span aria-hidden="true">→</span></a>
+                <h1 id="hero-title"><span class="hero-title-line">집 가고 싶다</span><br><span class="hero-title-line">퇴근하고 싶다</span></h1>
+                <p class="hero-description">교수님 너무 힘들어요.<br>제발 집에 보내주세요</p>
+                <a class="button" href="https://map.naver.com/p/bus/bus-route/P5342/bus-route/20033348?c=10.00%2C0%2C0%2C0%2Cdh" target="_blank" rel="noopener noreferrer" aria-label="집가는 길: P5342 버스 노선도 (새 탭)">집가는 길 <span aria-hidden="true">↗</span></a>
             </div>
             <p class="hero-caption">신뢰를 바탕으로, 가능성을 넓히다.</p>
         </section>
@@ -48,7 +82,7 @@
     </main>
     <footer id="contact">
         <div class="container footer-main">
-            <div><a class="brand" href="#home">MY COMPANY</a><p>함께 만드는 더 나은 내일.</p></div>
+            <div><a class="brand" href="#home">MY COMPANY</a><p>집 가고 싶다 퇴근하고 싶다</p></div>
             <div><h2>문의 안내</h2><p>회사 연락처와 주소는 준비 중입니다.</p></div>
         </div>
         <div class="container footer-bottom"><small>© 2026 MY COMPANY. All rights reserved.</small><span>신뢰 · 도전 · 동반 성장</span></div>
