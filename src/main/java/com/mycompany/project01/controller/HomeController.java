@@ -23,4 +23,8 @@ public class HomeController {
         log.debug("HomeController.about(): 회사 소개 화면 요청");
         return "about";
     }
+
+    public void method1() {
+        log.debug("HomeController.method1(): 메소드 호출");
+    }
 }
