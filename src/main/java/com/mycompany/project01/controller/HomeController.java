@@ -27,4 +27,8 @@ public class HomeController {
     public void method1() {
         log.debug("HomeController.method1(): 메소드 호출");
     }
+
+    public void method2() {
+        log.debug("HomeController.method2(): 메소드 호출");
+    }
 }
